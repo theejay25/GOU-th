@@ -21,7 +21,7 @@ export const Email = async (name, email, subject, content) => {
     try {
         
         await transport.sendMail({
-            from: email,
+            from: `${email}`,
             to: `jaytemporary1@gmail.com`,
             subject: `${subject}`,
             html: `
@@ -29,7 +29,7 @@ export const Email = async (name, email, subject, content) => {
             `
         })
 
-        console.log(`Email successfully sent to receiver`)
+        console.log(`Email successfully sent from ${email} to receiver`)
 
     } catch (error) {
         console.log(error)
