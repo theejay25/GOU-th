@@ -1,7 +1,7 @@
 import { Email } from "../email/email.js"
 
 export const sendEmail = async (req, res) => {
-    const {name, email, content} = req.body
+    const {name, email, subject, content} = req.body
 
     if(!name || !email || !content) {
         return res.status(400).json({message: 'Fields incomplete', success: false})
@@ -9,7 +9,7 @@ export const sendEmail = async (req, res) => {
 
     try {
 
-       await Email(name, email, content)
+       await Email(name, email, subject, content)
 
         return res.status(200).json({ message: 'message sent Successfully',  success: true})
         

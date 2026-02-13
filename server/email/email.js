@@ -17,15 +17,15 @@ const transport = nodemailer.createTransport({
 
 })
 
-export const Email = async (name, email, content) => {
+export const Email = async (name, email, subject, content) => {
     try {
         
         await transport.sendMail({
             from: email,
             to: `jaytemporary1@gmail.com`,
-            subject: `Patient Contact from ${name} `,
+            subject: `${subject}`,
             html: `
-                <p>${content}</p>
+                <p>I, ${name} am writing to let you know that ${content}</p>
             `
         })
 
